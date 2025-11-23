@@ -40,9 +40,9 @@ The example uses mock HTML and dummy data, and does not interact with any third-
 
 1. Python reads the Excel sheet and converts the training rows into a JSON list.
 
-2. You open the mock training form in your browser.
+2. Open the mock training form in the browser.
 
-3. You paste the JavaScript autofill script into the browser console, passing the JSON data.
+3. Paste the JavaScript autofill script into the browser console, passing the JSON data.
 
 4. The script automatically:
 
@@ -63,7 +63,9 @@ This simulates how automation can assist with repetitive form-filling tasks.
 
   - Pandas
 
-  - openpyxl
+  - Openpyxl
+ 
+  - Selenium
 
 - JavaScript
 
@@ -101,16 +103,16 @@ This automation project was originally created to explore:
 
 It evolved into a clean, reusable automation framework suitable for learning and portfolio demonstration.
 
-🧑‍💻 2. Python Script: extract_training_data.py (safe version)
+- 🧑‍💻 Python Script: ConvertExcelJSON.py (safe version)
 
 This version extracts a sample training dataset and prints JSON.
 
-(It uses row indices instead of headers to simulate your original workflow.)
+(It uses row indices instead of headers to simulate original workflow.)
 
-🌐 3. JavaScript Script: autofill_training_form.js (safe version)
+- 🌐 JavaScript Script: autofill_training_form.js (safe version)
 
 This version fills a mock HTML table (not tied to any real website).
 
-🧪 4. Mock HTML Form: mock_training_form.html
+- 🧪 Mock HTML Form: mock_training_form.html
 
-A safe generic version of the training table you automated.
+A safe generic version of the training table automated.
