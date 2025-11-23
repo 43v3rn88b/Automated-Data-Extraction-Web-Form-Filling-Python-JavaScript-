@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Learning & Development Demo Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f3f4f6;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        margin: 0 auto;
+        width: 90%;
+        padding: 0;
+    }
+
+    .card-header {
+        background: #3B5998;
+        color: white;
+        padding: 15px;
+        border-radius: 6px 6px 0 0;
+    }
+
+    .card-title {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        background: white;
+    }
+
+    th {
+        background: #e2e8f0;
+        padding: 8px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    td {
+        padding: 6px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .btn-add {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .btn-del {
+        background: #dc2626;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Learning and Development (L&D) Interventions / Training Programs Attended</h3>
+    </div>
+
+    <div class="card-body">
+        <table id="ld-table">
+            <thead>
+                <tr>
+                    <th rowspan="2">Title</th>
+                    <th colspan="2">Inclusive Dates</th>
+                    <th rowspan="2">Hours</th>
+                    <th rowspan="2">Type of L&D</th>
+                    <th rowspan="2">Conducted / Sponsored By</th>
+                    <th rowspan="2">Action</th>
+                </tr>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                </tr>
+            </thead>
+
+            <tbody id="learning-table-tbody">
+                <tr>
+                    <td><input type="text" name="LD_title"></td>
+                    <td><input type="date" name="LD_from"></td>
+                    <td><input type="date" name="LD_to"></td>
+                    <td><input type="text" name="LD_hours_number"></td>
+                    <td>
+                        <select name="LD_type">
+                            <option value="">-SELECT-</option>
+                            <option value="Managerial">Managerial</option>
+                            <option value="Supervisory">Supervisory</option>
+                            <option value="Technical">Technical</option>
+                            <option value="Administrative">Administrative</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="LD_conducted_by"></td>
+                    <td><button class="btn-del" onclick="deleteRow(this)">X</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn-add" onclick="addRow()">+ Add Row</button>
+    </div>
+</div>
+
+
+<script>
+function addRow() {
+    const tbody = document.getElementById("learning-table-tbody");
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+        <td><input type="text" name="LD_title"></td>
+        <td><input type="date" name="LD_from"></td>
+        <td><input type="date" name="LD_to"></td>
+        <td><input type="text" name="LD_hours_number"></td>
+        <td>
+            <select name="LD_type">
+                <option value="">-SELECT-</option>
+                <option value="Managerial">Managerial</option>
+                <option value="Supervisory">Supervisory</option>
+                <option value="Technical">Technical</option>
+                <option value="Administrative">Administrative</option>
+            </select>
+        </td>
+        <td><input type="text" name="LD_conducted_by"></td>
+        <td><button class="btn-del" onclick="deleteRow(this)">X</button></td>
+    `;
+
+    tbody.appendChild(tr);
+}
+
+function deleteRow(btn) {
+    const row = btn.parentNode.parentNode;
+    row.remove();
+}
+</script>
+
+</body>
+</html>
